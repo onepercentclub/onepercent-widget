@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen" />
+</head>
+
+<body>
+<h1>Widget with custom tag and widget.js script tag</h1>
+<div class="widget-container" data-id="19"></div>
+<script type="text/javascript" src="{% static 'js/widget.js' %}"></script>
+
+<h1>IFrame widget</h1>
+
+
+
+<iframe width="420" height="315" src="localhost:8000/embed/?id=100" frameborder="0"></iframe>
+</body>
+</html>
+
+
