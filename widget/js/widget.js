@@ -32,6 +32,12 @@ function main(){
 	jQuery(document).ready(function($){
 		//jQuery 1.4.2 is ready here
 		console.log("Widget loaded!");
+		var jsonp_url = "localhost:8000/embed/?callback=?";
+        $.getJSON(jsonp_url, function(data) {
+          $('.widget-container').html(data.html);
+        });
+    });
+
 	});
 }
 

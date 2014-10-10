@@ -2,10 +2,10 @@
 
 var jQuery;
 
-if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
+if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.11.1') {
 	var script_tag = document.createElement('script');
 	script_tag.setAttribute("type", "text/javascript");
-	script_tag.setAttribute("src", "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js");
+	script_tag.setAttribute("src", "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
 
 	if (script_tag.readyState) {
 		script_tag.onreadystatechange = function (){ //Specific for old versions of IE
@@ -30,13 +30,17 @@ function scriptLoadHandler() {
 
 function main(){
 	jQuery(document).ready(function($){
+
+		var el = $('div#widget-container');
+		var id = $(el).data('id')
+		var width = $(el).data('width') ? $(el).data('width') : 100;
+		var height = $(el).data('height') ? $(el).data('height') : 80;
+		var partner = $(el).data('partner')
+		
 		//jQuery 1.4.2 is ready here
-		console.log("Widget loaded!");
-		var jsonp_url = "http://localhost:8000/widget?callback=?";
+		var jsonp_url = "http://localhost:8000/embed?callback=?&id=" + id + "&width=" + width + "&height=" + height +"&partner=" + partner;
 		$.getJSON(jsonp_url, function(data){
-			console.log("loaded");
-			console.log(data.html);
-			$('.widget-container').html(data.html);
+			$('#widget-container').html(data.html);
 		});
 
 	});
