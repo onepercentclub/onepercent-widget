@@ -37,7 +37,6 @@ function main(){
 		var height = $(el).data('height') ? $(el).data('height') : 80;
 		var partner = $(el).data('partner')
 		
-		//jQuery 1.4.2 is ready here
 		var jsonp_url = "http://localhost:8000/embed?callback=?&id=" + id + "&width=" + width + "&height=" + height +"&partner=" + partner;
 		$.getJSON(jsonp_url, function(data){
 			$('#widget-container').html(data.html);
@@ -46,4 +45,4 @@ function main(){
 	});
 }
 
-})(); //Define and call the anonymous wrapper function immediately
+})();
