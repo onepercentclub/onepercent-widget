@@ -18,6 +18,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.11.1') {
 	}
 
 	(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+
 } else {
 	jQuery = window.jQuery;
 	main();
@@ -25,14 +26,27 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.11.1') {
 
 function scriptLoadHandler() {
 	jQuery = window.jQuery.noConflict(true);
+	loadEmber();
 	main();
+}
+
+function loadEmber() {
+	var script_tag_ember = document.createElement('script');
+	script_tag_ember.setAttribute("type", "text/javascript");
+	script_tag_ember.setAttribute("src", "https://onepercentclub.com/static/assets/js/vendor/ember-v1.0.0.js");
+
+	var script_tag_ember_data = document.createElement('script');
+	script_tag_ember_data.setAttribute("type", "text/javascript");
+	script_tag_ember_data.setAttribute("src", "https://onepercentclub.com/static/assets/js/vendor/js/vendor/ember-data-v0.14.js");	
+	(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag_ember);
+	(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag_ember_data);	
 }
 
 function main(){
 	jQuery(document).ready(function($){
 
 		var el = $('div#widget-container');
-		var id = $(el).data('id')
+		var id = $(el).data('id');
 		var width = $(el).data('width') ? $(el).data('width') : 100;
 		var height = $(el).data('height') ? $(el).data('height') : 80;
 		var partner = $(el).data('partner')
