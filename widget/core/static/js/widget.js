@@ -26,20 +26,7 @@ if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.11.1') {
 
 function scriptLoadHandler() {
 	jQuery = window.jQuery.noConflict(true);
-	loadEmber();
 	main();
-}
-
-function loadEmber() {
-	var script_tag_ember = document.createElement('script');
-	script_tag_ember.setAttribute("type", "text/javascript");
-	script_tag_ember.setAttribute("src", "https://onepercentclub.com/static/assets/js/vendor/ember-v1.0.0.js");
-
-	var script_tag_ember_data = document.createElement('script');
-	script_tag_ember_data.setAttribute("type", "text/javascript");
-	script_tag_ember_data.setAttribute("src", "https://onepercentclub.com/static/assets/js/vendor/ember-data-v0.14.js");	
-	(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag_ember);
-	(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag_ember_data);	
 }
 
 function main(){
