@@ -37,7 +37,7 @@ function loadEmber() {
 
 	var script_tag_ember_data = document.createElement('script');
 	script_tag_ember_data.setAttribute("type", "text/javascript");
-	script_tag_ember_data.setAttribute("src", "https://onepercentclub.com/static/assets/js/vendor/js/vendor/ember-data-v0.14.js");	
+	script_tag_ember_data.setAttribute("src", "https://onepercentclub.com/static/assets/js/vendor/ember-data-v0.14.js");	
 	(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag_ember);
 	(document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag_ember_data);	
 }
