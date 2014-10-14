@@ -70,12 +70,20 @@ function main(){
 				if (!daysLeft) {
 				return null;
 				}
+
+				var dates = daysLeft.split(/\W+/);
 				var now = new Date(),
 					d = now.getDay(),
 					m = now.getMonth(),
-					y = now.getFullYear();
-				console.log(daysLeft);
-				$(this).find('strong').html('jhon');
+					y = now.getFullYear(),
+					oneDay = 24*60*60*1000,
+					today = new Date(y, m, d),
+					deadline = new Date(parseInt(dates[2]), parseInt(dates[1]), parseInt(dates[0])),
+					diffDays = Math.round(Math.abs((today.getTime() - deadline.getTime())/(oneDay)));
+
+					console.log(today, deadline, diffDays)
+
+				//$(this).find('strong').html(diffDays);
 				//debugger;
 				//var microseconds = daysLeft.getTime() - now.getTime();
 				//return Math.ceil(microseconds / (1000 * 60 * 60 * 24));
